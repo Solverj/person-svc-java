@@ -17,7 +17,7 @@ public class PersonRepository {
     }
 
     public List<Person> getPersons() {
-        final String query = "select * from Person";
+        final String query = "select * from person";
 
         return jdbcTemplate.query(query,
                 (rs, rowNum) ->

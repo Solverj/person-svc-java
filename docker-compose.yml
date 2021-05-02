@@ -1,0 +1,16 @@
+version: "3.1"
+services:
+  postgres:
+    image: postgres:11-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: iAiMjn7dM6kX72Ce
+      POSTGRES_USER: user45L
+      POSTGRES_DB: sampledb
+    ports:
+      - 5432:5432
+    deploy:
+      resources:
+        limits:
+          memory: '512M'
+          cpus: '1'
