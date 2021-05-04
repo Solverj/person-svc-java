@@ -1,11 +1,20 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: person-svc
+  name: person-svc-deployment
+  labels:
+    app: person-svc
 spec:
-  containers:
-    - name: person-svc
-    image: __IMAGE__
-    ports:
-containerPort: 8080
-  imagePullPolicy: Always
+  selector:
+    matchLabels:
+      app: person-svc
+  template:
+    metadata:
+      labels:
+        app: person-svc
+    spec:
+      containers:
+        - name: person-svc
+          image: __IMAGE__
+          ports:
+            - containerPort: 80
